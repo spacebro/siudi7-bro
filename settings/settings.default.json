@@ -1,0 +1,27 @@
+{
+  "spacebro": {
+    "host": "127.0.0.1",
+    "port": 8888,
+    "channelName": "siudi7-bro"
+  },
+  "udp": {
+    "host": "192.168.1.60",
+    "port": 41234
+  },
+  "verbose": false,
+  "events": [
+    {
+      "name": "first",
+      "scene": "01",
+      "page": "00"
+    }, {
+      "name": "second",
+      "scene": "02",
+      "page": "00"
+    }, {
+      "name": "third",
+      "scene": "03",
+      "page": "00"
+    }
+  ]
+}
