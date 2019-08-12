@@ -17,6 +17,7 @@
       "delay": 5
     }, {
       "name": "second",
+      "requiredData": "required-parameter",
       "scene": "02",
       "page": "00"
     }, {

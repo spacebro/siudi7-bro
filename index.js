@@ -58,18 +58,20 @@ const spacebroclient = new SpacebroClient({
 })
 
 events.forEach((event) => {
-  spacebroclient.on(event.name, () => {
-    console.log(`sending "${event.name}"...`)
-    if (event.delay) console.log(`waiting ${event.delay}s...`)
+  spacebroclient.on(event.name, (datas) => {
+    if (!event.requiredData || Object.values(datas).includes(event.requiredData)) {
+      console.log(`sending "${event.name}"...`)
+      if (event.delay) console.log(`waiting ${event.delay}s...`)
 
-    raw.splice(10, 1, event.scene)
-    raw.splice(12, 1, event.page)
+      raw.splice(10, 1, event.scene)
+      raw.splice(12, 1, event.page)
 
-    const message = new Buffer(raw.join(''), 'hex')
-    setTimeout(() => {
-      udpclient.send(message, 0, message.length, udp.port, udp.host, (err, bytes) => {
-        console.log(`"${event.name}" sent!`)
-      })
-    }, (event.delay || 0) * 1000)
+      const message = new Buffer(raw.join(''), 'hex')
+      setTimeout(() => {
+        udpclient.send(message, 0, message.length, udp.port, udp.host, (err, bytes) => {
+          console.log(`"${event.name}" sent!`)
+        })
+      }, (event.delay || 0) * 1000)
+    }
   })
 })
