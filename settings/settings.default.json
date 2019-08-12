@@ -13,7 +13,8 @@
     {
       "name": "first",
       "scene": "01",
-      "page": "00"
+      "page": "00",
+      "delay": 5
     }, {
       "name": "second",
       "scene": "02",
