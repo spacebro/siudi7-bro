@@ -46,16 +46,7 @@ const raw = [
 // scene raw array index : 10
 // scene raw array index : 12
 
-const spacebroclient = new SpacebroClient({
-  host: settings.get('spacebro:host') || '127.0.0.1',
-  port: settings.get('spacebro:port') || 8888,
-  channelName: settings.get('spacebro:channelName') || '',
-  client: {
-    name: 'siudi7-bro',
-    description: 'siudi7 forward tool'
-  },
-  verbose
-})
+const spacebroclient = new SpacebroClient()
 
 events.forEach((event) => {
   spacebroclient.on(event.name, (datas) => {

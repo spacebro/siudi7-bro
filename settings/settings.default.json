@@ -1,8 +1,21 @@
 {
-  "spacebro": {
-    "host": "127.0.0.1",
-    "port": 8888,
-    "channelName": "siudi7-bro"
+  "service": {
+    "spacebro": {
+      "host": "spacebro.space",
+      "port": 8888,
+      "channelName": "media-stream",
+      "client": {
+        "name": "siudi7-bro",
+        "description": "a tool to trigger light siudi7 ",
+        "in": {
+          "trigger": {
+            "eventName": "trigger",
+            "description": "Trigger scene below",
+            "type": "all"
+          }
+        }
+      }
+    }
   },
   "udp": {
     "host": "192.168.1.60",
@@ -11,7 +24,7 @@
   "verbose": false,
   "events": [
     {
-      "name": "first",
+      "name": "trigger",
       "scene": "01",
       "page": "00",
       "delay": 5
